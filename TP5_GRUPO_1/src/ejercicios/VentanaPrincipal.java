@@ -3,6 +3,7 @@ package ejercicios;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -30,6 +31,11 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem mntmAgregar = new JMenuItem("Agregar");
 		mntmAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				contentPane.removeAll();
+				PanelAgregarPelicula panelAgregarPelicula = new PanelAgregarPelicula();
+				contentPane.add(panelAgregarPelicula);
+				contentPane.repaint();
+				contentPane.revalidate();
 			}
 		});
 		mnNewMenu.add(mntmAgregar);
