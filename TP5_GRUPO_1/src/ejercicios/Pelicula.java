@@ -2,13 +2,15 @@ package ejercicios;
 
 public class Pelicula {
 	
-	private int id;
+	private final int id;
 	private String titulo;
 	private Categoria categoria;
+	private static int contador = 1;
 	
 	public Pelicula()
 	{
-		
+		this.id = contador;
+		contador++;
 	}
 	public Pelicula(int id, String titulo, Categoria categoria) {
 		this.id = id;
@@ -18,10 +20,6 @@ public class Pelicula {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -45,6 +43,9 @@ public class Pelicula {
 		return "Pelicula [id=" + id + ", titulo=" + titulo + ", categoria=" + categoria + "]";
 	}
 	
-	
+	public static int devuelveProximoID()
+	{
+		return contador;
+	}
 	
 }
