@@ -5,6 +5,9 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultListModel;
@@ -21,7 +24,8 @@ public class PanelAgregarPelicula extends JPanel {
     /**
      * Create the panel.
      */
-    public PanelAgregarPelicula() {
+    public PanelAgregarPelicula(DefaultListModel<Pelicula> listModel){
+    	this.listModel = listModel; 
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -95,6 +99,15 @@ public class PanelAgregarPelicula extends JPanel {
         gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
         gbc_btnNewButton.gridx = 3;
         gbc_btnNewButton.gridy = 8;
+        
+        btnNewButton.addActionListener(new ActionListener() {  
+            @Override  
+            public void actionPerformed(ActionEvent e) {  
+                // Acción al presionar el botón  
+                System.out.println("Botón Aceptar presionado");  
+                // Aquí puedes añadir lógica adicional  
+            }  
+        });  
         add(btnNewButton, gbc_btnNewButton);
 
         // Validar
@@ -117,6 +130,8 @@ public class PanelAgregarPelicula extends JPanel {
                 // Limpiar los campos
                 textField.setText("");
                 cmbGenero.setSelectedIndex(0);
+                
+     
             }
         });
     }
