@@ -14,13 +14,19 @@ public class Pelicula implements Comparable<Pelicula> {
         contador++;
     }
 
-    public Pelicula(int id, String titulo, Categoria categoria) {
-        this.id = contador;
-        this.titulo = titulo;
-        this.categoria = categoria;
-       
-        contador++;
-    }
+    // Constructor con parámetros  
+    public Pelicula(String titulo, Categoria categoria) {  
+        this.id = contador++; // Asignar el contador y luego incrementarlo  
+        this.titulo = titulo;  
+        this.categoria = categoria;  
+    }  
+    
+    // Constructor que aceptaba id, ahora no es necesario  
+    public Pelicula(int id, String titulo, Categoria categoria) {  
+        this.id = id; // Simplemente por si en algún momento se necesita un ID específico  
+        this.titulo = titulo;  
+        this.categoria = categoria;  
+    }  
 
     public int getId() {
         return id;

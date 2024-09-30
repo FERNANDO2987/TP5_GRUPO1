@@ -123,8 +123,8 @@ public class PanelAgregarPelicula extends JPanel {
         btnNewButton.addActionListener(e -> {
             if (validarYGuardar()) { 
                 
-                Pelicula nuevaPelicula = new Pelicula(Pelicula.devuelveProximoID(), textField.getText(), (Categoria) cmbGenero.getSelectedItem());
-
+               // Pelicula nuevaPelicula = new Pelicula(Pelicula.devuelveProximoID(), textField.getText(), (Categoria) cmbGenero.getSelectedItem());
+            	 Pelicula nuevaPelicula = new Pelicula(textField.getText(), (Categoria) cmbGenero.getSelectedItem()); 
                 // Agregar la película
                 if (listModel != null) {
                 	
@@ -146,8 +146,8 @@ public class PanelAgregarPelicula extends JPanel {
                 JOptionPane.showMessageDialog(this, "Película agregada exitosamente!", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
 
              // Incrementar el ID para la próxima película
-				peliculaID++;
-				lblNewLabel_2.setText(String.valueOf(peliculaID)); 
+				//peliculaID++;
+				lblNewLabel_2.setText(String.valueOf(Pelicula.devuelveProximoID())); 
                 // Limpiar los campos
                 textField.setText("");
                 cmbGenero.setSelectedIndex(0);
