@@ -131,17 +131,11 @@ public class PanelAgregarPelicula extends JPanel {
                     listModel.addElement(nuevaPelicula);
                     
                     
-                    //listModel.clear();
-                    
-//                    for (int i = 0; i < listModel.getSize(); i++) {
-//                        peliculas.add(listModel.getElementAt(i));
-//                    }
-//                    
                     
                     peliculas.add(nuevaPelicula);
             
                     for (Pelicula pelicula : peliculas) {
-                        System.out.println(pelicula); // Asumiendo que tienes un método getTitulo()
+                        System.out.println(pelicula); 
                     }
                     
                 }

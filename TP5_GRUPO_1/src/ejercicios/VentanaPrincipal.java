@@ -73,14 +73,16 @@ public class VentanaPrincipal extends JFrame {
 	        });  
 	        mnPeliculas.add(mntmListar); 
 	        
+	
 	        
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		//Iniciializa con un panel por defecto
-		mntmListar.doClick();
+    	//Iniciializa con un panel por defecto
+		mntmAgregar.doClick();
+		
 	
 	}
 	
