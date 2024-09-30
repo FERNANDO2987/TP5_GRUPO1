@@ -3,10 +3,15 @@ package ejercicios;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -20,12 +25,16 @@ public class PanelAgregarPelicula extends JPanel {
     private DefaultListModel<Pelicula> listModel;
     private JComboBox<Categoria> cmbGenero;
     private static int peliculaID = 1;
+    private TreeSet<Pelicula> peliculas = new TreeSet<>();
+
 
     /**
      * Create the panel.
      */
     public PanelAgregarPelicula(DefaultListModel<Pelicula> listModel){
     	this.listModel = listModel; 
+    	 
+           
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -118,8 +127,26 @@ public class PanelAgregarPelicula extends JPanel {
 
                 // Agregar la película
                 if (listModel != null) {
+                	
                     listModel.addElement(nuevaPelicula);
+                    
+                    
+                    //listModel.clear();
+                    
+//                    for (int i = 0; i < listModel.getSize(); i++) {
+//                        peliculas.add(listModel.getElementAt(i));
+//                    }
+//                    
+                    
+                    peliculas.add(nuevaPelicula);
+            
+                    for (Pelicula pelicula : peliculas) {
+                        System.out.println(pelicula); // Asumiendo que tienes un método getTitulo()
+                    }
+                    
                 }
+                
+                
 
                 // Mostrar mensaje
                 JOptionPane.showMessageDialog(this, "Película agregada exitosamente!", "Confirmación", JOptionPane.INFORMATION_MESSAGE);

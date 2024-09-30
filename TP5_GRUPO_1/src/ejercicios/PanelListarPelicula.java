@@ -1,7 +1,10 @@
 package ejercicios;  
 
 import javax.swing.*;  
-import java.awt.*;  
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;  
 
 public class PanelListarPelicula extends JPanel {  
     private static final long serialVersionUID = 1L;  
@@ -16,15 +19,8 @@ public class PanelListarPelicula extends JPanel {
         titulo.setFont(new Font("Arial", Font.BOLD, 16));  
         add(titulo); // Añadir el título al panel  
 
-       
-        if (peliculas == null) {  
-            this.listaModel = new DefaultListModel<>(); 
-           
-           
-        } else {  
-            this.listaModel = peliculas; 
-        }  
-
+        
+        this.listaModel = peliculas;  
 
         listaPeliculas = new JList<>(listaModel);  
         listaPeliculas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);  
@@ -33,5 +29,42 @@ public class PanelListarPelicula extends JPanel {
         JScrollPane scrollPane = new JScrollPane(listaPeliculas);  
         scrollPane.setPreferredSize(new Dimension(300, 200)); 
         add(scrollPane); 
+        
+        ordenarLista();
+        
+        
+        
     }  
+    
+    public void agregarPelicula(Pelicula nuevaPelicula)
+    {
+    	
+    	listaModel.addElement(nuevaPelicula);
+    	ordenarLista();
+    }
+    
+    
+    private void ordenarLista()
+    {
+    	ArrayList<Pelicula> peliculaList = new ArrayList<>();
+    	
+    	
+    	for(int i=0; i<listaModel.getSize(); i++)
+    	{
+    		
+    		peliculaList.add(listaModel.getElementAt(i));
+    	}
+    	
+    	  Collections.sort(peliculaList, Comparator.comparing(Pelicula::getTitulo));
+    	  
+    	  listaModel.clear();
+    	  
+    	  for(Pelicula pelicula : peliculaList)
+    	  {
+    		  listaModel.addElement(pelicula);
+    		  
+    	  }
+    	  
+    	
+    }
 }

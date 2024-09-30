@@ -31,6 +31,10 @@ public class VentanaPrincipal extends JFrame {
         peliculas.add("Interstellar");  
         peliculas.add("The Matrix"); 
 		
+        modeloLista = new DefaultListModel<>();
+        
+   
+        
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -74,6 +78,10 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		//Iniciializa con un panel por defecto
+		mntmListar.doClick();
+	
 	}
 	
 	public void cambiarVisibilidad(boolean estado)
